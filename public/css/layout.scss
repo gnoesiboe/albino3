@@ -1,0 +1,604 @@
+$colorGreyish: #f3f5f9; /* #eaf9f3; */
+
+@mixin boxSizing($type) {
+  box-sizing: $type;
+  -moz-box-sizing: $type;
+}
+
+@mixin borderRadius($amount) {
+  -webkit-border-radius: $amount;
+  -moz-border-radius: $amount;
+  border-radius: $amount;
+}
+
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+body {
+  font-family: Georgia, Arial, Sans-Serif;
+  font-size: 14px;
+}
+
+* {
+  color: #111;
+}
+
+p,
+strong {
+  line-height: 1.7em;
+  padding-bottom: 10px;
+}
+
+p {
+  &.highlight {
+    background: $colorGreyish;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 0 0 20px;
+  }
+
+  &.intro {
+    line-height: 2.2em;
+    padding-bottom: 40px;
+  }
+}
+
+strong {
+  font-weight: bold;
+}
+
+address {
+  line-height: 1.4em;
+}
+
+blockquote {
+  line-height: 1.4em;
+  text-align: justify;
+  color: #555;
+  display: block;
+  border: 1px solid #ddd;
+  padding: 25px 25px 25px 40px;
+  background: $colorGreyish url('../images/bgBlockquote.png') no-repeat 0 10px;
+  font-style: italic;
+  margin: 40px 0;
+  border-radius: 4px;
+}
+
+a {
+  display: inline-block;
+  border-bottom: 1px dashed #aaa;
+  text-decoration: none;
+  line-height: 1.2em;
+
+  &.read-on {
+    color: #999;
+  }
+
+  &.no-border {
+    border: none;
+  }
+
+  img {
+    border: none;
+  }
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #000;
+}
+
+.image-holder {
+  margin: 0 0 20px;
+  padding: 7px;
+  display: block;
+  border: 1px solid #ddd;
+
+  @include boxSizing(border-box)
+}
+
+#header {
+
+  .social {
+    float: right;
+    padding: 75px 0 0;
+
+    a {
+      border: none;
+    }
+  }
+}
+
+#footer {
+  height: 300px;
+  background: $colorGreyish;
+  border-top: 1px solid #ddd;
+}
+
+#container {
+  width: 780px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+#logo {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: url('../images/bg.png') no-repeat;
+  margin-left: -125px;
+  margin-top: -47px;
+  z-index: 1;
+}
+
+#title,
+#slogan {
+  position: relative;
+  z-index: 2;
+  display: block;
+}
+
+#title {
+  text-decoration: none;
+  font-size: 4em;
+  margin: 0 0 20px;
+  color: #777;
+  border: none;
+  z-index: 2;
+}
+
+.img-full {
+  width: 100%;
+}
+
+#slogan {
+  font-size: 1.5em;
+  margin: 0 0 40px;
+}
+
+#navigation {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin: 0 0 50px;
+  z-index: 2;
+  position: relative;
+
+  li {
+    display: inline;
+  }
+
+  a {
+    line-height: 2.7em;
+    display: inline-block;
+    margin-right: 30px;
+    text-decoration: none;
+    border: none;
+
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+  }
+
+  img {
+    display: inline-block;
+  }
+
+  .active {
+    border-top: 4px solid $colorGreyish;
+  }
+}
+
+
+#content {
+  overflow: hidden;
+  padding-bottom: 200px; // otherwise facebook like
+
+  #left,
+  #right{
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  #left {
+    width: 500px;
+    margin-right: 50px;
+  }
+
+  #right {
+    width: 225px;
+  }
+
+  .social {
+    margin: 30px 0;
+    display: block;
+    width: 100%;
+    height: 70px;
+
+    li {
+      float: left;
+      margin-right: 10px;
+    }
+  }
+}
+
+.title-first {
+  text-decoration: none;
+  font-size: 1.55em;
+  line-height: 1.3em;
+  padding: 0 0 20px;
+}
+
+.title-second {
+  text-decoration: none;
+  font-size: 1.2em;
+  line-height: 1.4em;
+  padding: 20px 0 10px;
+}
+
+.title-third {
+  font-size: 1.2em;
+  padding: 20px 0 10px;
+  color: #999;
+}
+
+section {
+  padding: 30px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.meta-info {
+  font-style: italic;
+  color: #999;
+  display: block;
+  overflow: hidden;
+  margin: 0 0 30px;
+}
+
+.img-full {
+  display: block;
+}
+
+.list-bullet,
+.list-number {
+  margin: 0 0 20px 40px;
+
+  li {
+    line-height: 1.5em;
+    padding-bottom: 5px;
+  }
+}
+
+.list-bullet {
+  list-style: circle;
+}
+
+.list-number {
+  list-style: decimal;
+}
+
+table {
+  margin: 0 0 20px;
+
+  th,
+  td {
+    padding: 3px 10px 3px 0;
+  }
+
+  th {
+    font-style: italic;
+  }
+}
+
+.image-left {
+  float: left;
+  display: block;
+  margin: 0 20px 10px 0;
+}
+
+.form {
+  clear: both;
+  overflow: hidden;
+  margin: 0 0 30px;
+
+  .input-wrapper {
+    width: 100%;
+    margin: 0 0 5px;
+    padding: 10px 10px 10px 0;
+
+    @include boxSizing(border-box);
+
+    @include borderRadius(3px);
+
+    label {
+      display: inline-block;
+      width: 35%;
+      float: left;
+    }
+
+    .list.error {
+      display: block;
+      margin: 10px 0 10px 35%;
+
+      li {
+        color: #ff5c5c;
+        font-style: italic;
+      }
+    }
+
+    textarea {
+      resize: vertical;
+    }
+  }
+
+  .input {
+    @include boxSizing(border-box);
+
+    width: 65%;
+    border: 1px solid #ddd;
+    padding: 6px;
+    font-size: 1em;
+    color: #333;
+  }
+
+  input[type=submit] {
+    float: right;
+    margin-right: 2%;
+  }
+}
+
+.message-success {
+  display: block;
+  margin: 0 0 20px;
+  border: 1px solid #208041;
+  background: #adffc8;
+  padding: 12px;
+
+  @include borderRadius(3px);
+}
+
+.fade-in {
+  opacity: 0;  /* make things invisible upon start */
+  -webkit-animation: fadeIn ease-in 1;  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+  -moz-animation: fadeIn ease-in 1;
+  animation: fadeIn ease-in 1;
+
+  -webkit-animation-fill-mode: forwards;  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1)*/
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  animation-duration: 1s;
+
+  &.fade-in-first {
+    -webkit-animation-delay: 0.1s;
+    -moz-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+  }
+
+  &.fade-in-second {
+    -webkit-animation-delay: 0.5s;
+    -moz-animation-delay:0.5s;
+    animation-delay: 0.5s;
+  }
+
+  &.fade-in-third {
+    -webkit-animation-delay: 0.7s;
+    -moz-animation-delay: 0.7s;
+    animation-delay: 0.7s;
+  }
+}
+
+.spacer-1 {
+  margin: 0 0 10px;
+}
+
+.spacer-2 {
+  margin: 0 0 20px;
+}
+
+.spacer-3 {
+  margin: 0 0 30px;
+}
+
+.video {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+}
+
+.video iframe,
+.video object,
+.video embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+/**
+ * carousel
+ */
+
+.jcarousel-wrapper {
+  margin: 20px auto;
+  position: relative;
+  width: 486px;
+  height: 324px;
+}
+
+.jcarousel-wrapper * {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.jcarousel {
+  position: relative;
+  overflow: hidden;
+  width: 486px;
+  height: 324px;
+}
+
+.jcarousel ul {
+  width: 20000em;
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.jcarousel li {
+  float: left;
+}
+
+.jcarousel-control-prev,
+.jcarousel-control-next {
+  position: absolute;
+  bottom: -40px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  background: #4E443C;
+  color: #fff;
+  text-decoration: none;
+  font: 24px/27px Arial, sans-serif;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+}
+
+.jcarousel-control-prev {
+  left: 38%;
+}
+
+.jcarousel-control-next {
+  right: 38%;
+}
+
+.jcarousel-control-prev:hover,
+.jcarousel-control-next:hover {
+  text-decoration: none;
+}
+
+.jcarousel-control-prev:hover span,
+.jcarousel-control-next:hover span {
+  display: block;
+}
+
+.jcarousel-control-prev.inactive,
+.jcarousel-control-next.inactive {
+  opacity: .5;
+  cursor: default;
+}
+
+.jcarousel-pagination {
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+}
+
+.jcarousel-pagination a {
+  text-decoration: none;
+  display: inline-block;
+
+  font-size: 11px;
+  line-height: 14px;
+  min-width: 14px;
+
+  background: #fff;
+  color: #4E443C;
+  border-radius: 14px;
+  padding: 3px;
+  text-align: center;
+
+  margin-right: 2px;
+
+  opacity: .75;
+}
+
+.jcarousel-pagination a.active {
+  background: #4E443C;
+  color: #fff;
+  opacity: 1;
+}
+
+
+/**
+ * Media queries for responsive design
+ */
+
+@media all and (max-width: 780px) {
+  #container {
+    width: 100%;
+  }
+
+  #title,
+  #slogan {
+    text-align: center;
+  }
+
+  #content {
+
+    width: 92%;
+    margin: 4%;
+
+    #left,
+    #right {
+      width: 100%;
+    }
+  }
+
+  #header {
+    .social {
+      display: block;
+      float: none;
+      text-align: center;
+      padding: 0 0 15px;
+      margin-right: 4%;
+    }
+  }
+
+  #navigation {
+    width: 92%;
+    margin: 0 auto 30px;
+
+    li {
+      display: block;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    a {
+      display: block;
+      width: 100%;
+      margin-right: 0;
+    }
+
+    .active {
+      border: none;
+      font-weight: bold;
+    }
+  }
+
+  #logo {
+    display: none;
+  }
+
+  .form {
+    .input,
+    label {
+      display: block;
+      float: none;
+      width: 100%;
+      margin: 0 0 10px;
+    }
+  }
+
+  .jcarousel-wrapper,
+  .jcarousel {
+    width: 100%;
+  }
+}

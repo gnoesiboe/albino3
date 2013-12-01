@@ -1,0 +1,16 @@
+Options +FollowSymLinks +ExecCGI
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # redirect non www to www
+  RewriteCond %{HTTP_HOST} !^www\.
+  RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+
+  # we skip all files with .something
+  RewriteCond %{REQUEST_URI} \..+$
+  RewriteRule .* - [L]
+
+  # redirect everything else to index.php
+  RewriteRule ^(.*)$ index.php?path=/$1 [PT,L]
+</IfModule>
